@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="DataBindingFragmentData">
+
+        <import type="com.chainspower.model.User"
+        />
+
+        <variable name="userInfo" type="User"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="Fragment"
+                app:subtitle="@string/app_name"
+        />
+
+        <TextView
+                android:id="@+id/mTvUserName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mToolBar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                android:text="@{userInfo.name,default=CWH}"
+                android:gravity="center"
+                android:padding="12dp"
+                android:background="@color/colorThree"
+        />
+
+        <TextView
+                android:id="@+id/mTvUserAge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mToolBar"
+                app:layout_constraintWidth_percent="0.6"
+                android:padding="12dp"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="@{userInfo.age,default=27}"
+        />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

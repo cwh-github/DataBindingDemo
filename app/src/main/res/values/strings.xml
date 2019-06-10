@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyTab</string>
+    <string name="have">有</string>
+    <string name="no_have">没有</string>
+</resources>

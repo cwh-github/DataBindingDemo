@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <!--布局间变化的动画的开始与结束布局-->
+    <!--app:constraintSetStart="@layout/activity_motion_layout"-->
+    <!--app:constraintSetEnd="@layout/activity_motion_layout_end"-->
+
+    <!--指定布局中的元素按开始与结束属性进行动画-->
+    <!--app:constraintSetStart="@id/activity_scene_start"-->
+    <!--app:constraintSetEnd="@id/activity_scene_end"-->
+    <!---->
+    <Transition
+            app:constraintSetStart="@layout/activity_motion_layout"
+            app:constraintSetEnd="@layout/activity_motion_layout_end"
+            app:duration="1500"
+            app:motionInterpolator="bounce"
+    />
+
+    <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/mImg"/>
+    <OnSwipe
+            app:touchAnchorId="@id/mImg"
+            app:touchAnchorSide="top"
+            app:dragDirection="dragUp"
+            app:maxVelocity="10"
+
+    />
+    <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/mImg1"
+    />
+
+    <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/mBtn"
+    />
+
+
+    <ConstraintSet
+            android:id="@+id/activity_scene_start"
+    >
+        <Constraint
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/mBtn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                android:alpha="1.0"
+                app:transitionEasing="decelerate"
+        />
+        <!--&lt;!&ndash; 使用自定义属性 &ndash;&gt;-->
+        <!--<CustomAttribute-->
+        <!--app:attributeName="background"-->
+        <!--app:customColorValue="@color/colorPrimary" />-->
+
+    </ConstraintSet>
+
+    <ConstraintSet
+            android:id="@+id/activity_scene_end"
+    >
+        <Constraint
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/mBtn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                android:alpha="0.5"
+                app:transitionEasing="decelerate"
+        />
+
+        <!--&lt;!&ndash; 使用自定义属性 &ndash;&gt;-->
+        <!--<CustomAttribute-->
+        <!--app:attributeName="background"-->
+        <!--app:customColorValue="@color/colorThree" />-->
+
+    </ConstraintSet>
+
+</MotionScene>

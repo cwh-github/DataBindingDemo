@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ConstrainActivity">
+
+    <Button
+            android:id="@+id/mBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Btn1"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+    />
+
+    <Button
+            android:id="@+id/mBtn2"
+            android:text="Btn2"
+            android:textAllCaps="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constrainedWidth="true"
+            app:layout_constrainedHeight="true"
+            android:layout_height="0dp"
+            android:layout_width="0dp"/>
+
+    <Button
+            android:id="@+id/mBtnGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintDimensionRatio="h,1:1"
+    />
+
+    <Button
+            android:id="@+id/mBtn4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mBtn1"
+            android:text="Btn4"
+            android:visibility="gone"
+            android:textAllCaps="false"
+            app:layout_constraintDimensionRatio="h,2:1.5"
+    />
+
+    <!--对于使用layout_constraintDimensionRatio属性时，需要有一个边是确定的宽度或高度，让后我们可以在写
+    layout_constraintDimensionRatio的参数时，以已知的宽度用w,高度用h,来作为基准，进行比例设置，
+    如：已知高为100dp ,则可以设置为h,1:0.5，则此时的宽度未50dp-->
+    <Button android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toBottomOf="@id/mBtn4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintDimensionRatio="h,1:2"
+            android:visibility="gone"
+    />
+
+    <Button android:layout_width="wrap_content"
+            android:id="@+id/mBtnChain1"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/mBtn4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/mBtnChain2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+
+    />
+
+    <Button android:layout_width="wrap_content"
+            android:id="@+id/mBtnChain2"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/mBtnChain1"
+            app:layout_constraintRight_toLeftOf="@id/mBtnChain3"
+            app:layout_constraintTop_toBottomOf="@id/mBtn4"
+    />
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mBtnChain3"
+            app:layout_constraintTop_toBottomOf="@id/mBtn4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/mBtnChain2"
+    />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintTop_toBottomOf="@id/mBtnChain3"
+            app:layout_constraintLeft_toLeftOf="parent"
+    />
+
+    <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/guideLine"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@color/colorThree"
+            android:text="123456"
+    />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintTop_toBottomOf="@id/mBtnChain3"
+            app:layout_constraintLeft_toLeftOf="parent"
+    />
+
+    <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintLeft_toRightOf="@id/guideLine1"
+            android:background="@color/colorThree"
+            android:text="123456"
+    />
+
+    <ImageView android:layout_width="0dp"
+               android:layout_height="0dp"
+               app:layout_constraintWidth_percent="0.3"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintDimensionRatio="16:9"
+               android:background="@color/colorThree"
+    />
+
+    <TextView
+            android:id="@+id/mTv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/mBtn2"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="123456456121321232132121122"
+            android:textSize="24sp"
+    />
+
+    <TextView
+            android:id="@+id/mTv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/mBtn2"
+            app:layout_constraintWidth_percent="0.4"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintLeft_toRightOf="@id/mTv1"
+            android:text="123456456121321232132121122"
+            android:textSize="24sp"
+    />
+
+    <TextView
+            android:id="@+id/mTv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/mBtn2"
+            app:layout_constraintWidth_percent="0.2"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintLeft_toRightOf="@id/mTv2"
+            android:text="12345645612132123213212112245541223131345"
+            android:textSize="24sp"
+    />
+
+    <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/mBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="mTv1,mTv2,mTv3"
+    />
+
+    <View android:layout_width="match_parent"
+          android:layout_height="0.5dp"
+          android:background="@color/colorThree"
+          app:layout_constraintTop_toBottomOf="@id/mBarrier"
+    />
+    <androidx.constraintlayout.widget.Group
+            android:id="@+id/mImgGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="mBtn2,mBtnGroup"
+    />
+    <androidx.constraintlayout.widget.Placeholder
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:content="@id/mBtn1"
+            android:visibility="visible"
+
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

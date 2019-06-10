@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          android:enterFadeDuration="1000"
+          android:exitFadeDuration="1000"
+          android:autoMirrored="true"
+>
+    <item android:state_pressed="false" android:drawable="@color/colorPrimary"
+    />
+    <item android:state_pressed="true" android:drawable="@color/colorThree"/>
+</selector>

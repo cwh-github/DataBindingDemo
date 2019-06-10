@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="DataBindingCollection">
+        <variable name="list" type="androidx.databinding.ObservableArrayList&lt;String&gt;"/>
+        <variable name="map" type="androidx.databinding.ObservableArrayMap&lt;String,String&gt;"/>
+        <variable name="index" type="int"/>
+        <variable name="key" type="String"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/mTvList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="12dp"
+                android:gravity="center"
+                android:text="@{list[index],default=123}"
+        />
+
+        <TextView
+                android:id="@+id/mTvMap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvList"
+                android:padding="12dp"
+                android:gravity="center"
+                android:text="@{map[key],default=123}"
+        />
+
+        <Button
+                android:id="@+id/mBtnCollection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvMap"
+                android:text="Collection"
+                android:textAllCaps="false"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

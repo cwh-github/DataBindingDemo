@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="DataBindingNotify">
+        <import type="com.chainspower.model.Goods"/>
+        <variable name="goods" type="Goods"/>
+
+        <variable name="goodsHandler" type="com.chainspower.mytab.DataBindingFragmentOther.GoodsHandler"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/mTvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{String.valueOf(goods.price),default=12.6}"
+        />
+        <TextView
+                android:id="@+id/mTvGoodsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/mTvPrice"
+                android:text="@{goods.goodsName,default=CWH}"
+        />
+
+        <TextView
+                android:id="@+id/mTvDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvGoodsName"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{goods.details,default=1234}"
+        />
+
+        <TextView
+                android:id="@+id/mTvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvDetails"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{goods.date.get(),default=20190610}"
+        />
+
+        <TextView
+                android:id="@+id/mTvNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvDate"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{String.valueOf(goods.nums.get()),default=24}"
+        />
+
+        <TextView
+                android:id="@+id/mTvHave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvNum"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="有"
+        />
+
+
+        <Button
+                android:id="@+id/mBtnNotifyBR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mTvHave"
+                app:layout_constraintRight_toLeftOf="@id/mBtnNotifyAll"
+                android:text="BtnNotifyBR"
+                android:textAllCaps="false"
+                app:layout_constraintVertical_chainStyle="spread"
+                android:onClick="@{()->goodsHandler.changeGoodsPrice()}"
+        />
+        <Button
+                android:id="@+id/mBtnNotifyAll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvHave"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintLeft_toRightOf="@id/mBtnNotifyBR"
+                app:layout_constraintRight_toLeftOf="@id/mBtnObservable"
+                android:textAllCaps="false"
+                android:text="BtnNotifyAll"
+                android:onClick="@{()->goodsHandler.changeDetails()}"
+        />
+        <Button
+                android:id="@+id/mBtnObservable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintLeft_toRightOf="@id/mBtnNotifyAll"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mTvHave"
+                android:text="BtnObservable"
+                android:textAllCaps="false"
+                android:onClick="@{()->goodsHandler.changeObservable()}"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
