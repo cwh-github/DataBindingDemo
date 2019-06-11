@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
     <data class="DataBindingCollection">
         <variable name="list" type="androidx.databinding.ObservableArrayList&lt;String&gt;"/>
         <variable name="map" type="androidx.databinding.ObservableArrayMap&lt;String,String&gt;"/>
         <variable name="index" type="int"/>
         <variable name="key" type="String"/>
+        <variable name="goods" type="com.chainspower.model.Goods"/>
+        <variable name="imageInfo" type="com.chainspower.model.ImageInfo"/>
+        <variable name="flag" type="boolean"/>
+        <import type="android.view.View"/>
+        <!--<import type="java.util.List"/>-->
+        <!--<import type="java.util.Map"/>-->
+        <!--<import type="java.util.Set"/>-->
+        <!--<import type="android.util.SparseArray"/>-->
+
+        <!--<variable name="array" type="String[]"/>-->
+        <!--<variable name="list" type="List&lt;String&gt;"/>-->
+        <!--<variable name="map" type="Map&lt;String,String&gt;"/>-->
+        <!--<variable name="set" type="Set&lt;String&gt;"/>-->
+        <!--<variable name="spareArray" type="SparseArray&lt;String&gt;"/>-->
+
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,5 +54,116 @@
                 android:text="Collection"
                 android:textAllCaps="false"
         />
+
+
+        <TextView
+                android:id="@+id/mTvGoodsInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/mBtnCollection"
+                android:gravity="center"
+                android:text="@{goods.date,default=12}"
+        />
+
+        <EditText
+                android:id="@+id/mEtBinding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvGoodsInfo"
+                android:text="@={goods.date,default=12}"
+        />
+
+        <Button
+                android:id="@+id/mBtnBinding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mEtBinding"
+                android:textAllCaps="false"
+                android:text="Binding"
+        />
+
+        <ImageView
+                android:id="@+id/mImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintTop_toBottomOf="@id/mBtnBinding"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                bind:url="@{imageInfo.url}"
+        />
+
+        <Button
+                android:id="@+id/mBtnBindingAdapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mImage"
+                android:textAllCaps="false"
+                android:text="ChangeImage"
+        />
+
+        <Button
+                android:id="@+id/mBtnAddText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mBtnBindingAdapter"
+                android:textAllCaps="false"
+                android:text="@{goods.date,default=20190630}"
+        />
+
+        <LinearLayout
+                app:layout_constraintTop_toBottomOf="@id/mBtnAddText"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/colorAccent"
+                android:visibility="@{flag? View.VISIBLE:View.GONE}"
+                android:orientation="vertical">
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="12dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@{array[index],default=123}"-->
+            <!--/>-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="12dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@{list[index],default=123}"-->
+            <!--/>-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="12dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@{map[key],default=123}"-->
+            <!--/>-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="12dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@{set[index],default=123}"-->
+            <!--/>-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="12dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@{spareArray[index],default=123}"-->
+            <!--/>-->
+
+
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

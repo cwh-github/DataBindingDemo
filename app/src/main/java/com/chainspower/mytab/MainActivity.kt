@@ -92,6 +92,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, DataBindingActivity::class.java))
         }
 
+        mBtnDataBindingRecyclerView.setOnClickListener {
+
+            startActivity(Intent(this, DataBindingRecyclerViewActivity::class.java))
+        }
+
     }
 
     private fun setComponentEnabled() {

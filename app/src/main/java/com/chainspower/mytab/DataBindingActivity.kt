@@ -40,6 +40,10 @@ class DataBindingActivity : AppCompatActivity() {
         supportFragmentManager.transaction {
             this.replace(R.id.mFrame2,DataBindingFragmentCollection())
         }
+
+        supportFragmentManager.transaction {
+            this.replace(R.id.mFrame3,DataBindingFragmentConversionJava())
+        }
     }
 
     private fun onNameClick(view: View) {
