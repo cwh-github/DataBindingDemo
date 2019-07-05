@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.OnRebindCallback
 import androidx.fragment.app.transaction
 import com.chainspower.model.User
 import com.chainspower.mytab.databinding.DataBingDemo
@@ -22,8 +23,29 @@ class DataBindingActivity : AppCompatActivity() {
         binding.mTvName.setOnClickListener {
             onNameClick(it)
         }
+        binding.setVariable(BR.userInfo,User("CWH_C","28"))
 
         initFragment()
+
+        binding.addOnRebindCallback(object:OnRebindCallback<DataBingDemo>(){
+            /**
+             * 绑定完成
+             */
+            override fun onBound(binding: DataBingDemo?) {
+                super.onBound(binding)
+            }
+
+            override fun onCanceled(binding: DataBingDemo?) {
+                super.onCanceled(binding)
+            }
+
+            /**
+             * return true 绑定视图，false 解除绑定
+             */
+            override fun onPreBind(binding: DataBingDemo?): Boolean {
+                return super.onPreBind(binding)
+            }
+        })
 
 
     }

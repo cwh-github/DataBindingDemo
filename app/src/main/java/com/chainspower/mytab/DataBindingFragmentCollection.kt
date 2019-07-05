@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.chainspower.model.Goods
 import com.chainspower.model.ImageInfo
+import com.chainspower.model.Progress
 import com.chainspower.mytab.databinding.DataBindingCollection
 import kotlinx.android.synthetic.main.fragment_collection.*
 import java.util.*
@@ -49,6 +50,8 @@ class DataBindingFragmentCollection : Fragment() {
         mBinding.key = "name"
         mBinding.goods = Goods(12.6f, "cwh", "asd", "2019-06-11", 12, true)
         mBinding.flag = true
+        mBinding.orderCode="001"
+        mBinding.progress= Progress(ObservableInt(18))
 
 
         mBtnCollection.setOnClickListener {
@@ -60,11 +63,11 @@ class DataBindingFragmentCollection : Fragment() {
         }
 
         mBinding.imageInfo = ImageInfo(
-            "https://www.gstatic.com/devrel-devsite/v376af9848533d30e0dd1d0914c8856dd94bfbc2392899dfed92ec7e10698aa74/android/images/lockup.svg",
+            "https://www.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_PclogoS_8whnvm25&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pcs",
             1024
         )
         mBtnBindingAdapter.setOnClickListener {
-            mBinding.imageInfo!!.url.set("https://user-gold-cdn.xitu.io/2019/6/5/16b25f59a9b6fb66?imageView2/0/w/1280/h/960/format/webp/ignore-error/1${Random().nextInt()}")
+            mBinding.imageInfo!!.url.set("https://profile.csdnimg.cn/E/B/E/1_u011212909")
         }
 
         mBtnAddText.setOnClickListener {
@@ -81,18 +84,24 @@ class DataBindingFragmentCollection : Fragment() {
 
     companion object {
 
-        @JvmStatic
-        @BindingAdapter("url")
-        fun loadImage(image: ImageView, url: String) {
-            Glide.with(image.context).load(url).into(image)
-            Toast.makeText(image.context, "Url", Toast.LENGTH_SHORT).show()
-        }
-
-        @JvmStatic
-        @BindingAdapter("android:text")
-        fun btnText(btn: Button, text: String) {
-            btn.text = "$text ${Random().nextInt(18)}"
-        }
+//        @JvmStatic
+//        @BindingAdapter("url")
+//        fun loadImage(image: ImageView, url: String) {
+//            Glide.with(image.context).load(url).into(image)
+//            Toast.makeText(image.context, "Url", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        @JvmStatic
+//        @BindingAdapter("toast")
+//        fun toast(image: ImageView, text: String) {
+//            Toast.makeText(image.context, text, Toast.LENGTH_SHORT).show()
+//        }
+//
+//        @JvmStatic
+//        @BindingAdapter("android:text")
+//        fun btnText(btn: Button, text: String) {
+//            btn.text = "$text ${Random().nextInt(18)}"
+//        }
 
 //        @JvmStatic
 //        @BindingConversion
