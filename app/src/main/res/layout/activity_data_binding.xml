@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data class="DataBingDemo">
         <import
@@ -55,11 +55,18 @@
                     android:background="@color/colorPrimary"
             />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTvAge"
+                android:id="@+id/mBtn"
+                />
+
             <FrameLayout
                     android:id="@+id/mFrame"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    app:layout_constraintTop_toBottomOf="@id/mTvAge"
+                    app:layout_constraintTop_toBottomOf="@id/mBtn"
                     app:layout_constraintHeight_percent="0.3"
             />
 
@@ -86,6 +93,13 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/mFrame2"
             />
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@id/mFrame3"
+                bind:refreshing="@{true}"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

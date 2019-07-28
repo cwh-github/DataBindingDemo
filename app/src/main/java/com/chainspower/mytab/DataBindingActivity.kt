@@ -6,6 +6,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.OnRebindCallback
 import androidx.fragment.app.transaction
+import androidx.lifecycle.*
 import com.chainspower.model.User
 import com.chainspower.mytab.databinding.DataBingDemo
 import com.google.android.material.snackbar.Snackbar
@@ -23,8 +24,9 @@ class DataBindingActivity : AppCompatActivity() {
         binding.mTvName.setOnClickListener {
             onNameClick(it)
         }
-        binding.setVariable(BR.userInfo,User("CWH_C","28"))
 
+        binding.setVariable(BR.userInfo,User("CWH_C","28"))
+        binding.lifecycleOwner
         initFragment()
 
         binding.addOnRebindCallback(object:OnRebindCallback<DataBingDemo>(){
@@ -46,6 +48,17 @@ class DataBindingActivity : AppCompatActivity() {
                 return super.onPreBind(binding)
             }
         })
+
+        //我们可以在线程中更改数 DataBinding 中被绑定的数据，但前提是该数据不能是集合。
+        //
+        //之所以可以这样，是因为 DataBinding 在处理数据时会对 变量/字段 进行值拷贝，这样就避免了并发问题。
+        mBtn.setOnClickListener {
+            Thread{
+                Thread.sleep(500)
+                binding.userInfos=User("CWH_ON_THREAD","27")
+            }.start()
+        }
+        
 
 
     }

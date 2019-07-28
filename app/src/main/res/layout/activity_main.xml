@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -76,6 +86,47 @@
             app:layout_constraintTop_toBottomOf="@id/mBtnConstrain"
     />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mBtnDialogFragment"
+        tools:text="@tools:sample/first_names"
+        android:text="123456"
+        android:gravity="center"
+        android:padding="6dp"
+        android:id="@+id/mTv"
+        />
+
+    <Button
+        android:id="@+id/mBtnDivider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/mTv"
+        android:textAllCaps="false"
+        android:text="RecyclerDivider"
+        />
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="Navigation"
+        android:textAllCaps="false"
+        android:id="@+id/mBtnNavigation"
+        />
+
+    <Button
+        android:id="@+id/mBtnRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mBtnNavigation"
+        android:text="RecyclerView"
+        android:textAllCaps="false"
+        />
+
     <RelativeLayout
             android:id="@+id/mRelaParent"
             android:layout_width="match_parent"
@@ -119,3 +170,5 @@
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

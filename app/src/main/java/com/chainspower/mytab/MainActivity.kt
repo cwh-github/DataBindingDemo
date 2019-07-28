@@ -14,11 +14,11 @@ import com.google.android.material.tabs.TabLayout
 import android.text.Html
 import android.text.Spanned
 import android.util.Log
-import android.util.SparseArray
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.chainspower.itemdecoration.RecyclerDividerActivity
+import com.chainspower.navigation.NavigationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         mTvContent.text =
             fromHtml("<p>尊敬的GMW用户：</p>\\n<p>&nbsp; &nbsp; &nbsp;您好！</p>\\n<p>&nbsp; &nbsp; &nbsp;目前GMW处于内测阶段，为了不影响用户体验，我们正在积极的进行技术升级与维护。</p>")
         mTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -74,6 +75,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, DialogFragmentActivity::class.java))
         }
 
+        mBtnRecyclerView.setOnClickListener {
+            startActivity(Intent(this@MainActivity, RecyclerViewActivity::class.java))
+        }
+
         mRelaParent.setOnClickListener {
 
         }
@@ -96,6 +101,16 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent(this, DataBindingRecyclerViewActivity::class.java))
         }
+
+        mBtnNavigation.setOnClickListener {
+            startActivity(Intent(this, NavigationActivity::class.java))
+        }
+
+        mBtnDivider.setOnClickListener {
+
+            startActivity(Intent(this, RecyclerDividerActivity::class.java))
+        }
+
 
     }
 

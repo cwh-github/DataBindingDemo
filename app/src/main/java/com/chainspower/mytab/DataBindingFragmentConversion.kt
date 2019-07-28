@@ -1,6 +1,7 @@
 package com.chainspower.mytab
 
 import android.os.Bundle
+import android.util.Printer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class DataBindingFragmentConversion : Fragment() {
     lateinit var mBinding: DataBindingConversion
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_conversion, container, false)
+        mBinding.lifecycleOwner=this
         return mBinding.root
     }
 

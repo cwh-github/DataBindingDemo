@@ -14,9 +14,9 @@ import androidx.databinding.BindingMethods
  */
 
 //BindingMethods在java中使用会报不能在一个注解中出现另一个注解参数的注解，所以我这里改为了java
-//@BindingMethods({
-//    @BindingMethod(type = TextView::class, attribute = "toastText", method = "toastTextShow")
-//})
+@BindingMethods(value=[
+    BindingMethod(type = TextView::class, attribute = "toastText", method = "toastTextShow")
+])
 class TextViewBindMethod @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : TextView(context, attrs, defStyleAttr) {

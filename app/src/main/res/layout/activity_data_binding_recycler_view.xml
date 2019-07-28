@@ -68,6 +68,10 @@
             app:layout_constraintTop_toBottomOf="@id/mBarrier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:listitem="@layout/item_databinding"
+            tools:itemCount="6"
+            tools:listheader="@layout/tab_item"
+            tools:listfooter="@layout/tab_item"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
